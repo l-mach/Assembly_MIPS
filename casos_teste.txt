@@ -1,3 +1,35 @@
+3 - MULTIPLICACAO
+	Caso 1:
+		Entrada:
+			4
+			2
+		Saída:
+			4 * 2 = 8
+	Caso 2:
+		Entrada:
+			8
+			0
+		Saída:
+			8 * 0 = 0
+	Caso 3:
+		Entrada: 
+			80
+			2000000000
+		Saída:
+			ERRO: Valor invalido! Os argumentos devem ser estar entre -32767 e 32767.
+	Caso 4:
+		Entrada:
+			-500
+			2
+		Saída:
+			-500 * 2 = -1000
+	Caso 5:
+		Entrada:
+			-1000
+			-2000
+		Saída:
+			-1000 * -2000 = 2000000
+
 4 - DIVISÃO
 	Caso 1:
 		Entrada:
