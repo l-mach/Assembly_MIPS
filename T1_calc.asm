@@ -445,7 +445,8 @@ case_7:
 	la $a0, ins1
 	syscall			# Imprime a string "digite um numero"
 	
-	li $s7, 2	#incica que a operacao nao aceita numeros negativos
+	# $s7 = 2 indica que a operacao nao aceita numeros negativos
+	li $s7, 2	
 	jal lerInt
 	move $s1, $v0	# $a0 = primeiro argumento
 
@@ -549,7 +550,7 @@ case_9:
 	la $a0, ins1	# "Inserir um numero"
 	syscall
 	
-	# $s7 = 2 indica que a operacao nao aceita numeros negativos nem maiores que 19
+	# $s7 = 4 indica que a operacao nao aceita numeros negativos nem maiores que 19
 	addi $s7, $zero, 4
 	
 	jal lerInt	
