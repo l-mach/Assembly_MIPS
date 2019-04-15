@@ -30,6 +30,7 @@ err0:	.asciiz "ERRO: Valor invalido! Os argumentos devem ser estar entre -32767 
 err1:	.asciiz "ERRO: Valor invalido! O(s) argumento(s) não deve(m) ser negativo(s).\n"
 err2:	.asciiz "ERRO: Valor invalido! Este argumento deve ser diferente de zero.\n"
 err3:	.asciiz "ERRO: Valor invalido! O argumento deve estar entre 0 e 19.\n"
+err4:	.asciiz "ERRO: Valor invalido! O argumento precisa ser menor ou igual a 107374182"
 
 sum0:	.asciiz "\tSOMA\n"
 sum1:	.asciiz " + "
@@ -460,6 +461,9 @@ case_7:
 	jal lerInt
 	move $s1, $v0	# $a0 = primeiro argumento
 
+	addi $t0, $zero, 107374182
+	bgt $s1, $t0, err_msg4
+
 	li $v0, 9
 	li $a0, 44
 	syscall       		# Aloca espaco na heap
@@ -531,11 +535,6 @@ case_8:
 	syscall
 	
 	jal lerFloat
-	
-	mtc1 $zero, $f11  #coloca como $f11=0
-	c.eq.s $f0,$f11	  # ve se altura é 0
-	bc1t err_msg2	  # se for imprime mensagem de erro, não pode divisao por 0
-	
 	mov.s $f1, $f0	# $f1 = altura
 	jal lerFloat
 	mov.s $f2, $f0	# $f2 = peso
@@ -1085,13 +1084,18 @@ err_msg3:
 	la $a0, err3		# "ERRO: Valor invalido! Este argumento deve estar entre 0 e 19."
 	syscall
 	j main
+err_msg4:
+	li $v0, 4
+	la $a0, err4
+	syscall
+	j main
 	
 lerFloat:
 	li $v0, 6		# Lê número de ponto flutuante
 	syscall
 	
 	mtc1 $zero, $f11	# Converte o valor inteiro 0 para ponto flutuante e o armazena em $f1
-	c.lt.s $f0, $f11	# Caso o valor lido seja menor que zero
+	c.le.s $f0, $f11	# Caso o valor lido seja menor que zero
 	bc1t err_msg1		# exibe mensagem de erro
 	
 	jr $ra			# Caso não haja erro, retorna o valor lido em $f0
