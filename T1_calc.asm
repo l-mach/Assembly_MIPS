@@ -31,6 +31,8 @@ err1:	.asciiz "ERRO: Valor invalido! O(s) argumento(s) não deve(m) ser negativo
 err2:	.asciiz "ERRO: Valor invalido! Este argumento deve ser diferente de zero.\n"
 err3:	.asciiz "ERRO: Valor invalido! O argumento deve estar entre 0 e 19.\n"
 err4:	.asciiz "ERRO: Valor invalido! O argumento precisa ser menor ou igual a 107374182"
+err5:   .asciiz "ERRO: O resultado é menor que -2.147.483.648 (-2^31) - Underflow "
+err6:   .asciiz "ERRO: O resultado é maior que 2.147.483.647 (2^31 - 1) - Overflow"
 
 sum0:	.asciiz "\tSOMA\n"
 sum1:	.asciiz " + "
@@ -170,7 +172,25 @@ case_1:
 	move $a0, $v0	# $a0 = primeiro argumento
 	jal lerInt
 	move $a1, $v0	# $a1 = segundo argumento
+
 	
+verif_underflow:			
+	bgez $a0, verif_overfow		#se o primeiro argumento for negativo, so eh possivel acontecer underflow
+	
+	addi $t0, $zero, -2147483648    #verifica qual o valor minimo que $a1 pode assumir
+	sub $t0, $t0, $a0
+	
+	blt $a1, $t0, err_msg5		#se $a1 for menor que o valor minimo, o underflow deve ser reportado
+
+	j faz_soma			#caso $a1 form maiior que o valor minimo, nao ha perigo de underflow
+
+verif_overfow:
+	addi $t0, $zero, 2147483647	#caso em que $a0 eh positivo
+	sub $t0, $t0, $a0 		#verifica o valor maximo que $a1 pode assumir
+
+	bgt $a1, $t0, err_msg6		#se $a1 for maior que o valor maximo, o overflow deve ser reportado
+
+faz_soma:
 	jal soma	# Efetuar operacao
 	move $s0, $v0	# $s0 = resultado
 	
@@ -1095,7 +1115,18 @@ err_msg4:
 	la $a0, err4
 	syscall
 	j main
+err_msg5:
+	li $v0, 4
+	la $a0, err5
+	syscall
+	j main
+err_msg6:
+	li $v0, 4
+	la $a0, err6
+	syscall
+	j main
 	
+
 lerFloat:
 	li $v0, 6		# Lê número de ponto flutuante
 	syscall
