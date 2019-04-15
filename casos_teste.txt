@@ -60,6 +60,39 @@
 			0
 		Saída:
 			sqrt(0) = 0
+			
+8 - IMC
+	Caso 1:
+		Entrada:
+			Altura:0
+			Peso:30 (não será digitado pois, já da erro)
+		Saída:
+			ERRO: Valor invalido! Este argumento deve ser diferente de zero.
+	Caso 2:
+		Entrada:
+			Altura:1.78
+			Peso:0
+		Saída:
+			IMC: 0.0
+	Caso 3:
+		Entrada: 
+			Altura: 2.0
+			Peso:-50
+		Saída:
+			ERRO: Valor invalido! O(s) argumento(s) não deve(m) ser negativo(s).
+	Caso 4:
+		Entrada:
+			Altura: 1.78
+			Peso: 65
+		Saída:
+			IMC: 20.515087 
+	Caso 5:
+		Entrada:
+			Altura: 2000000000
+			Peso: 2000000000
+		Saída:
+			IMC: 5.0E-10
+
 
 9 - FATORIAL
 	Caso 1:
