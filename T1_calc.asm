@@ -535,6 +535,12 @@ case_8:
 	syscall
 	
 	jal lerFloat
+
+	
+	mtc1 $zero, $f11  #coloca como $f11=0
+	c.eq.s $f0,$f11	  # ve se altura é 0
+	bc1t err_msg2	  # se for imprime mensagem de erro, não pode divisao por 0
+	
 	mov.s $f1, $f0	# $f1 = altura
 	jal lerFloat
 	mov.s $f2, $f0	# $f2 = peso
@@ -1095,7 +1101,7 @@ lerFloat:
 	syscall
 	
 	mtc1 $zero, $f11	# Converte o valor inteiro 0 para ponto flutuante e o armazena em $f1
-	c.le.s $f0, $f11	# Caso o valor lido seja menor que zero
+	c.lt.s $f0, $f11	# Caso o valor lido seja menor que zero
 	bc1t err_msg1		# exibe mensagem de erro
 	
 	jr $ra			# Caso não haja erro, retorna o valor lido em $f0
