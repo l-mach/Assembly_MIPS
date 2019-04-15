@@ -33,6 +33,33 @@
 		Saída:
 			7382078 / 372389 = 19
 			> Resto: 306687
+			
+6 - RAIZ QUADRADA
+	Caso 1:
+		Entrada:
+			4
+		Saída:
+			sqrt(4) = 2
+	Caso 2:
+		Entrada:
+			100000000
+		Saída:
+			sqrt(100000000) = 10000
+	Caso 3:
+		Entrada:
+			-50
+		Saída:
+			ERRO: Valor invalido! O(s) argumento(s) não deve(m) ser negativo(s).
+	Caso 4:
+		Entrada:
+			120
+		Saída:
+			sqrt(120) = 10 
+	Caso 5:
+		Entrada:
+			0
+		Saída:
+			sqrt(0) = 0
 
 9 - FATORIAL
 	Caso 1:
