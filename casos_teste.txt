@@ -1,0 +1,62 @@
+4 - DIVISÃO
+	Caso 1:
+		Entrada:
+			4
+			2
+		Saída:
+			4 / 2 = 2
+			> Resto: 0
+	Caso 2:
+		Entrada:
+			56
+			0
+		Saída:
+			ERRO: Valor invalido! Este argumento deve ser diferente de zero.
+	Caso 3:
+		Entrada:
+			123
+			450
+		Saída:
+			123 / 450 = 0
+			> Resto: 123
+	Caso 4:
+		Entrada:
+			-30
+			13
+		Saída:
+			-30 / 13 -2
+			> Resto: -4
+	Caso 5:
+		Entrada:
+			7382078
+			372389
+		Saída:
+			7382078 / 372389 = 19
+			> Resto: 306687
+
+9 - FATORIAL
+	Caso 1:
+		Entrada:
+			4
+		Saída:
+			4! = 24
+	Caso 2:
+		Entrada:
+			-6
+		Saída:
+			ERRO: Valor invalido! O argumento deve estar entre 0 e 19.
+	Caso 3:
+		Entrada:
+			20
+		Saída:
+			ERRO: Valor invalido! O argumento deve estar entre 0 e 19.
+	Caso 4:
+		Entrada:
+			12
+		Saída:
+			12! = 179001600
+	Caso 1:
+		Entrada:
+			7
+		Saída:
+			7! = 5040	
