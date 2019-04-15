@@ -350,9 +350,10 @@ case_5:
 	la $a0, ins2	# "Inserir dois numeros"
 	syscall
 	
-	li $s7, 2	#incica que a operacao nao aceita numeros negativos
+	li $s7, 0	#indica que o argumento nao possui restricao de entrada
 	jal lerInt
 	move $a0, $v0	# $a0 = primeiro argumento
+	li $s7, 2	#indica que o argumento nao aceita numeros negativos
 	jal lerInt
 	move $a1, $v0	# $a1 = segundo argumento
 	
@@ -360,29 +361,38 @@ case_5:
 	move $s0, $v0	# $s0 = resultado
 	
 	# "<$a0> ^ <$a1> = <$s0>"
-	li $v0, 1
+	li $v0, 1	#imprime $a0
 	syscall
-	li $v0, 4
+
+	li $v0, 4	#imprime " ^ "
 	la $a0, pot1
 	syscall
-	bgez $a1, skip0
-	li $v0, 4
+
+	bgez $a1, skip0	 #se o numero for positivo, vai para skip0
+
+	li $v0, 4	#imprime '('
 	la $a0, par_op
 	syscall
-skip0:	li $v0, 1
+
+skip0:	li $v0, 1	#imprime o expoente passada por input
 	move $a0, $a1
 	syscall
-	bgez $a1, skip1
-	li $v0, 4
+	
+	bgez $a1, skip1	#se o expoente eh positivo, vai para skip1
+	
+	li $v0, 4	#imprime ')'
 	la $a0, par_cl
 	syscall
-skip1:	li $v0, 4
+
+skip1:	li $v0, 4	#imprime '='
 	la $a0, eq
 	syscall
-	li $v0, 36
+	
+	li $v0, 1	#imprime o resultado da potenciacao
 	move $a0, $s0
 	syscall
-	li $v0, 4
+	
+	li $v0, 4	#imprime '\n'
 	la $a0, nl
 	syscall
 	
