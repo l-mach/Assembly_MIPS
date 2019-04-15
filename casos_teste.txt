@@ -1,4 +1,35 @@
-
+2 - SUBTRAÇÃO
+    Caso 1:
+		Entrada:
+			2
+			1
+		Saída:
+			2 - 1 = 1
+	Caso 2:
+		Entrada:
+			5
+			5
+		Saída:
+			5 - 5 = 0
+	Caso 3:
+		Entrada:
+			0
+			3
+		Saída:
+			0 - 3 = -3
+	Caso 4:
+		Entrada:
+			5
+			-5
+		Saída:
+			5 - -5 = 10
+	Caso 5:
+		Entrada:
+			-32768
+			1999999999
+		Saída:
+			-32768 - 1999999999 = -2000032767
+			
 3 - MULTIPLICACAO
 	Caso 1:
 		Entrada:
@@ -251,3 +282,38 @@
 			7
 		Saída:
 			7! = 5040	
+			
+10 - FIBONACCI
+    Caso 1:
+        Entrada:
+            1
+            10
+        Saída:
+            > Numeros de Fibonacci 1 a 10:
+            1 1 2 3 5 8 13 21 34 55
+    Caso 2:
+        Entrada:
+            -1
+            10
+        Saída:
+            ERRO: Valor invalido! O(s) argumento(s) não deve(m) ser negativo(s).
+    Caso 3:
+        Entrada:
+            3
+            2
+        Saída:
+            ERRO: O segundo valor deve ser maior do que o primeiro!
+    Caso 4:
+        Entrada:
+            1
+            10
+        Saída:
+            > Numeros de Fibonacci 5 a 10:
+            5 8 13 21 34 55
+    Caso 5:
+        Entrada:
+            1
+            10
+        Saída:
+            > Numeros de Fibonacci 20 a 30:
+            6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 9227465 14930352 24157817 39088169 63245986 102334155
