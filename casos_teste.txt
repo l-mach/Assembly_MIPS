@@ -55,7 +55,7 @@
 			12
 		Saída:
 			12! = 179001600
-	Caso 1:
+	Caso 5:
 		Entrada:
 			7
 		Saída:
