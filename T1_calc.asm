@@ -1091,7 +1091,7 @@ lerFloat:
 	syscall
 	
 	mtc1 $zero, $f11	# Converte o valor inteiro 0 para ponto flutuante e o armazena em $f1
-	c.lt.s $f0, $f11	# Caso o valor lido seja menor que zero,
+	c.lt.s $f0, $f11	# Caso o valor lido seja menor que zero
 	bc1t err_msg1		# exibe mensagem de erro
 	
 	jr $ra			# Caso não haja erro, retorna o valor lido em $f0
