@@ -1,3 +1,36 @@
+1 - ADIÇÂO
+	Caso 1:
+		Entrada:
+			1
+			2
+		Saida:
+			1 + 2 = 3
+	Caso 2:
+		Entrada:
+			-5
+			13
+		Saida:
+			-5 + 13 = 8
+	Caso 3:
+		Entrada:
+			-2147483648
+			-1
+		Saida:
+			ERRO: O resultado é menor que -2.147.483.648 (-2^31) - Underflow 
+	Caso 4:
+		Entrada:
+			2147483647
+			1
+		Saida:
+			ERRO: O resultado é maior que 2.147.483.647 (2^31 - 1) - Overflow
+
+	Caso 5:
+		Entrada:
+			2147483646
+			1
+		Saida:
+			2147483646 + 1 = 2147483647
+
 2 - SUBTRAÇÃO
     Caso 1:
 		Entrada:
